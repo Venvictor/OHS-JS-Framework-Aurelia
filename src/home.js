@@ -22,7 +22,11 @@ export class Home{
       .then(bundle => this.patients = Array.from(bundle.entry, e => new Patient(e.resource)));
   }
 
-  loadBMI(p){
+  loadPatient(p){
+    for (let patient of this.patients) {
+      patient.isActive = (patient == p)
+    }
+
     let bmisFromObservations = function(observations) {
       let sortFn = (a, b) => a.date < b.date ? -1 : a.date > b.date ? 1 : 0
       let heights = Array.filter(observations, o => o.hasCode('http://loinc.org','8302-2')).sort(sortFn)
