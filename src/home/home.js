@@ -1,8 +1,8 @@
 import {computedFrom} from 'aurelia-framework';
 import {inject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-fetch-client';
-import {Patient} from 'fhir/patient'
-import {Observation} from 'fhir/observation'
+import {Patient} from '../fhir/patient'
+import {Observation} from '../fhir/observation'
 import 'fetch';
 
 @inject(HttpClient)

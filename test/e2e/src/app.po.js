@@ -1,8 +1,6 @@
-export class PageObject_Skeleton {
+export class PageObject_App {
 
-  constructor() {
-
-  }
+  constructor() {}
 
   getCurrentPageTitle() {
     return browser.getTitle();

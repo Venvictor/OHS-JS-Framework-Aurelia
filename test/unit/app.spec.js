@@ -10,32 +10,28 @@ class RouterStub {
 }
 
 describe('the App module', () => {
-  var sut
+  var app
     , mockedRouter;
 
   beforeEach(() => {
     mockedRouter = new RouterStub();
-    sut = new App(mockedRouter);
-    sut.configureRouter(mockedRouter, mockedRouter);
+    app = new App(mockedRouter);
+    app.configureRouter(mockedRouter, mockedRouter);
   });
 
   it('contains a router property', () => {
-    expect(sut.router).toBeDefined();
+    expect(app.router).toBeDefined();
   });
 
   it('configures the router title', () => {
-    expect(sut.router.title).toEqual('Aurelia');
+    expect(app.router.title).toEqual('OHS Bakeoff');
   });
 
-  it('should have a welcome route', () => {
-    expect(sut.router.routes).toContain({ route: ['','welcome'], name: 'welcome',  moduleId: 'welcome', nav: true, title:'Welcome' });
+  it('should have a home route', () => {
+    expect(app.router.routes).toContain({ route: ['','home'], name: 'home',  moduleId: 'home/home', nav: true, title:'Home' });
   });
 
-  it('should have a users route', () => {
-     expect(sut.router.routes).toContain({ route: 'users', name: 'users', moduleId: 'users', nav: true, title:'Github Users' });
-  });
-
-  it('should have a child router route', () => {
-    expect(sut.router.routes).toContain({ route: 'child-router', name: 'child-router', moduleId: 'child-router', nav: true, title:'Child Router' });
+  it('should have an about route', () => {
+     expect(app.router.routes).toContain({ route: 'about', name: 'about', moduleId: 'about/about', nav: true, title:'About' });
   });
 });

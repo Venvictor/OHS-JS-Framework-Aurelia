@@ -11,7 +11,7 @@
     </div>
     <div class="col-xs-9">
       <h4 class="card-title">BMI Calculations <small>(sorted by date)</small></h4>
-      <ul>
+      <ul id="bmi-list">
         <li repeat.for="bmi of bmis">${bmi.weight.date | dateFormat}: (${bmi.weight.value} + 703) / ${bmi.height.value}<sup>2</sup> = ${bmi.BMI} BMI</li>
       </ul>
     </div>

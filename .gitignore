@@ -4,4 +4,5 @@ bower_components
 .idea
 .DS_STORE
 /dist
+test/e2e/dist
 build/reports
