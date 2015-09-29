@@ -42,7 +42,7 @@ describe('OHS BakeOff', function() {
     po_home.getBMITexts().then(bmis => {
       expect(bmis.length).toBeGreaterThan(0);
       for (let bmi of bmis) {
-        expect(bmi).toMatch(/\d{1,2}\/\d{1,2}\/\d{4} \d{1,2}:\d{2}:\d{2} [ap]m: \(\d+ \+ 703\) \/ \d+2 = \d+.\d BMI/)
+        expect(bmi).toMatch(/[A-Z][a-z]+ \d{1,2}(st|nd|rd|th), \d{4}: \(\d+ \+ 703\) \/ \d+2 = \d+.\d BMI/)
       }
     })
   });
