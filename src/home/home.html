@@ -1,4 +1,5 @@
 <template>
+  <require from="../util/converters"></require>
   <div class="row">
     <div class="col-lg-3">
       <h4>Patients <small>(sorted alphabetically)</small></h4>
@@ -11,7 +12,7 @@
     <div class="col-xs-9">
       <h4 class="card-title">BMI Calculations <small>(sorted by date)</small></h4>
       <ul>
-        <li repeat.for="bmi of bmis">${bmi.weight.date}: (${bmi.weight.value} + 703) / ${bmi.height.value}<sup>2</sup> = ${bmi.BMI} BMI</li>
+        <li repeat.for="bmi of bmis">${bmi.weight.date | dateFormat}: (${bmi.weight.value} + 703) / ${bmi.height.value}<sup>2</sup> = ${bmi.BMI} BMI</li>
       </ul>
     </div>
   </div>

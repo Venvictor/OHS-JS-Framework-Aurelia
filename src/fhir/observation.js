@@ -1,7 +1,7 @@
 export class Observation{
   constructor(resource){
     this.code = resource.code
-    this.date = resource.effectiveDateTime
+    this.date = new Date(resource.effectiveDateTime)
     this.value = resource.valueQuantity.value
   }
 
