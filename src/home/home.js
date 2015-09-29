@@ -1,6 +1,8 @@
 import {computedFrom} from 'aurelia-framework';
 import {inject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-fetch-client';
+import {Patient} from 'fhir/patient'
+import {Observation} from 'fhir/observation'
 import 'fetch';
 
 @inject(HttpClient)
@@ -9,7 +11,7 @@ export class Home{
     http.configure(config => {
       config
         .useStandardConfiguration()
-        .withBaseUrl('http://mm181308-pc.mitre.org:3001/');
+        .withBaseUrl('http://localhost:3001/');
     });
 
     this.http = http;
@@ -44,26 +46,6 @@ export class Home{
       .then(bundle => Array.from(bundle.entry, e => new Observation(e.resource)))
       .then(observations => this.bmis = bmisFromObservations(observations));
     }
-}
-
-export class Patient{
-  constructor(resource){
-    this.id = resource.id
-    this.firstName = resource.name[0].given[0]
-    this.lastName = resource.name[0].family[0]
-  }
-}
-
-export class Observation{
-  constructor(resource){
-    this.code = resource.code
-    this.date = resource.effectiveDateTime
-    this.value = resource.valueQuantity.value
-  }
-
-  hasCode(system, code){
-    return this.code.coding.some(c => c.system == system && c.code == code)
-  }
 }
 
 export class BMI{
