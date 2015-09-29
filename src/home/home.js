@@ -30,9 +30,7 @@ export class Home{
 
   loadPatient(p){
     // Mark the "active" patient
-    for (let patient of this.patients) {
-      patient.isActive = (patient == p)
-    }
+    this.activePID = p.id
 
     // We'll need a function to pair heights and weights together for BMI calculation
     let bmisFromObservations = function(observations) {
